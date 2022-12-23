@@ -9,7 +9,15 @@
     <VerticalStackLayout>
         <CollectionView
             ItemsSource="{Binding AnimalList}">
-            
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:EntryDetails">
+                    <StackLayout>
+                        <Label Text="{Binding API}" FontSize="20"/>
+                        <Label Text="{Binding Category}" FontSize="20"/>
+                        <Label Text="{Binding Description}" FontSize="20"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
