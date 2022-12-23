@@ -9,6 +9,8 @@ public partial class AnimalListViewModel : ObservableObject
     private int _pageSize = 20;
     [ObservableProperty]
     private bool _isBusy;
+    [ObservableProperty]
+    private bool _isLoading;
 
     public AnimalListViewModel(AnimalService animalService)
     {
@@ -38,8 +40,19 @@ public partial class AnimalListViewModel : ObservableObject
     }
 
     [ICommand]
-    public void LoadMoreData()
+    public async Task LoadMoreData()
     {
+        if (IsLoading) return;
 
+        if (_allAnimals?.Count > 0)
+        {
+            IsLoading = true;
+            await Task.Delay(2000);
+            var recordsToBeAdded = _allAnimals.Skip(AnimalList.Count).Take(_pageSize).ToList();
+            foreach (var record in recordsToBeAdded)
+                AnimalList.Add(record);
+
+            IsLoading = false;
+        }
     }
 }

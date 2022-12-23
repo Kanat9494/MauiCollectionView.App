@@ -7,17 +7,21 @@
              xmlns:model="clr-namespace:MauiCollectionView.Models"
              Title="AnimalListPage">
     <StackLayout>
-        <ActivityIndicator 
-            IsRunning="{Binding IsBusy}" 
-            IsVisible="{Binding IsBusy}"
-            HeightRequest="60"
-            WidthRequest="60"
-            HorizontalOptions="Center"/>
         <CollectionView
             ItemsSource="{Binding AnimalList}"
             VerticalOptions="FillAndExpand"
             RemainingItemsThreshold="1"
             RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand}">
+            <CollectionView.Header>
+                <StackLayout>
+                    <ActivityIndicator 
+                        IsRunning="{Binding IsBusy}" 
+                        IsVisible="{Binding IsBusy}"
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        HorizontalOptions="Center"/>
+                </StackLayout>
+            </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:EntryDetails">
                     <StackLayout>
@@ -27,6 +31,16 @@
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <StackLayout>
+                    <ActivityIndicator 
+                        IsRunning="{Binding IsLoading}" 
+                        IsVisible="{Binding IsLoading}"
+                        HeightRequest="50"         
+                        WidthRequest="50"
+                        HorizontalOptions="Center"/>
+                </StackLayout>
+            </CollectionView.Footer>
         </CollectionView>
     </StackLayout>
 </ContentPage>
