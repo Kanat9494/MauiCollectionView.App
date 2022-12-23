@@ -6,4 +6,6 @@ global using MauiCollectionView.Views;
 global using MauiCollectionView.Services;
 global using System.Collections.ObjectModel;
 global using Microsoft.Toolkit.Mvvm.Input;
+global using MvvmHelpers;
+
 

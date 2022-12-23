@@ -1,10 +1,11 @@
-﻿
+﻿using ObservableObject = Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject;
+
 namespace MauiCollectionView.ViewModels;
 
 public partial class AnimalListViewModel : ObservableObject
 {
     private readonly AnimalService _animalService;
-    public ObservableCollection<EntryDetails> AnimalList { get; set; } = new ObservableCollection<EntryDetails>();
+    public ObservableRangeCollection<EntryDetails> AnimalList { get; set; } = new ObservableRangeCollection<EntryDetails>();
     private List<EntryDetails> _allAnimals;
     private int _pageSize = 20;
     [ObservableProperty]
@@ -29,10 +30,7 @@ public partial class AnimalListViewModel : ObservableObject
 
             App.Current.Dispatcher.Dispatch(() =>
             {
-                var recordsToBeAdded = _allAnimals.Take(_pageSize).ToList();
-
-                foreach (var record in recordsToBeAdded) 
-                    AnimalList.Add(record);
+                AnimalList.ReplaceRange(_allAnimals.Take(_pageSize).ToList());
 
                 IsBusy = false;
             });
@@ -48,9 +46,7 @@ public partial class AnimalListViewModel : ObservableObject
         {
             IsLoading = true;
             await Task.Delay(2000);
-            var recordsToBeAdded = _allAnimals.Skip(AnimalList.Count).Take(_pageSize).ToList();
-            foreach (var record in recordsToBeAdded)
-                AnimalList.Add(record);
+            AnimalList.AddRange(_allAnimals.Skip(AnimalList.Count).Take(_pageSize).ToList());
 
             IsLoading = false;
         }
