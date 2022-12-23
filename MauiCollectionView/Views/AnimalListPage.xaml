@@ -6,9 +6,18 @@
              x:DataType="viewModel:AnimalListViewModel"
              xmlns:model="clr-namespace:MauiCollectionView.Models"
              Title="AnimalListPage">
-    <VerticalStackLayout>
+    <StackLayout>
+        <ActivityIndicator 
+            IsRunning="{Binding IsBusy}" 
+            IsVisible="{Binding IsBusy}"
+            HeightRequest="60"
+            WidthRequest="60"
+            HorizontalOptions="Center"/>
         <CollectionView
-            ItemsSource="{Binding AnimalList}">
+            ItemsSource="{Binding AnimalList}"
+            VerticalOptions="FillAndExpand"
+            RemainingItemsThreshold="1"
+            RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:EntryDetails">
                     <StackLayout>
@@ -19,5 +28,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>
