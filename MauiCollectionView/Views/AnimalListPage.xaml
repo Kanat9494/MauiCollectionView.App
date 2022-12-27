@@ -8,11 +8,10 @@
              Title="AnimalListPage">
     <StackLayout>
         <CollectionView
-            ItemsSource="{Binding AnimalList}"
+            ItemsSource="{Binding AllItems}"
             VerticalOptions="FillAndExpand"
-            RemainingItemsThreshold="1"
-            RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand}">
-            <CollectionView.Header>
+            >
+            <!--<CollectionView.Header>
                 <StackLayout>
                     <ActivityIndicator 
                         IsRunning="{Binding IsBusy}" 
@@ -21,17 +20,22 @@
                         WidthRequest="50"
                         HorizontalOptions="Center"/>
                 </StackLayout>
-            </CollectionView.Header>
+            </CollectionView.Header>-->
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:EntryDetails">
+                <DataTemplate x:DataType="model:Item">
                     <StackLayout>
-                        <Label Text="{Binding API}" FontSize="20"/>
-                        <Label Text="{Binding Category}" FontSize="20"/>
+                        <Label Text="{Binding ItemId}" FontSize="20"/>
+                        <Label Text="{Binding Title}" FontSize="18"/>
                         <Label Text="{Binding Description}" FontSize="20"/>
+                        <Image Source="{Binding ImageUrl}" HeightRequest="250"/>
+
+                        <!--<Label Text="{Binding API}" FontSize="20"/>
+                        <Label Text="{Binding Category}" FontSize="20"/>
+                        <Label Text="{Binding Description}" FontSize="20"/>-->
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            <CollectionView.Footer>
+            <!--<CollectionView.Footer>
                 <StackLayout>
                     <ActivityIndicator 
                         IsRunning="{Binding IsLoading}" 
@@ -40,7 +44,7 @@
                         WidthRequest="50"
                         HorizontalOptions="Center"/>
                 </StackLayout>
-            </CollectionView.Footer>
+            </CollectionView.Footer>-->
         </CollectionView>
     </StackLayout>
 </ContentPage>

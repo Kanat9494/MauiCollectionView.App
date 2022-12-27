@@ -12,12 +12,13 @@ public partial class AnimalListViewModel : ObservableObject
     private bool _isBusy;
     [ObservableProperty]
     private bool _isLoading;
+    public ObservableCollection<Item> AllItems { get; set; } = new ObservableCollection<Item>();
 
     public AnimalListViewModel(AnimalService animalService)
     {
         _animalService = animalService;
 
-        GetAnimalList();
+        GetItems();
     }
 
     private void GetAnimalList()
@@ -34,6 +35,20 @@ public partial class AnimalListViewModel : ObservableObject
 
                 IsBusy = false;
             });
+        });
+    }
+
+    public void GetItems()
+    {
+        AllItems.Clear();
+        List<Item> items;
+
+        Task.Run(async () =>
+        {
+            items = await _animalService.GenerateNewItems(1);
+
+            foreach(var item in items) 
+                AllItems.Add(item);
         });
     }
 

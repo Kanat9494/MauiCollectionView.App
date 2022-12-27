@@ -21,4 +21,26 @@ public class AnimalService
         }
         return returnResponse;
     }
+
+    public async Task<List<Item>> GenerateNewItems(int itemId)
+    {
+        List<Item> items = new List<Item>();
+        int endOfLoop = itemId + 50;
+
+        await Task.Run(() =>
+        {
+            for (; itemId < endOfLoop; itemId++)
+            {
+                var item = new Item();
+                item.ItemId = itemId;
+                item.Title = $"Title of {itemId}-th item";
+                item.Description = $"This is the Description of {itemId}-th item";
+                item.ImageUrl = $"https://picsum.photos/id/{itemId}/200/300";
+
+                items.Add(item);
+            }
+        });
+
+        return items;
+    }
 }
