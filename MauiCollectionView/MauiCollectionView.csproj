@@ -49,6 +49,59 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\1.jpg" />
+	  <None Remove="Resources\Images\10.jpg" />
+	  <None Remove="Resources\Images\11.jpg" />
+	  <None Remove="Resources\Images\12.jpg" />
+	  <None Remove="Resources\Images\13.jpg" />
+	  <None Remove="Resources\Images\14.jpg" />
+	  <None Remove="Resources\Images\15.jpg" />
+	  <None Remove="Resources\Images\16.jpg" />
+	  <None Remove="Resources\Images\17.jpg" />
+	  <None Remove="Resources\Images\18.jpg" />
+	  <None Remove="Resources\Images\19.jpg" />
+	  <None Remove="Resources\Images\2.jpg" />
+	  <None Remove="Resources\Images\20.jpg" />
+	  <None Remove="Resources\Images\21.jpg" />
+	  <None Remove="Resources\Images\22.jpg" />
+	  <None Remove="Resources\Images\23.jpg" />
+	  <None Remove="Resources\Images\24.jpg" />
+	  <None Remove="Resources\Images\25.jpg" />
+	  <None Remove="Resources\Images\26.jpg" />
+	  <None Remove="Resources\Images\27.jpg" />
+	  <None Remove="Resources\Images\28.jpg" />
+	  <None Remove="Resources\Images\29.jpg" />
+	  <None Remove="Resources\Images\3.jpg" />
+	  <None Remove="Resources\Images\30.jpg" />
+	  <None Remove="Resources\Images\31.jpg" />
+	  <None Remove="Resources\Images\32.jpg" />
+	  <None Remove="Resources\Images\33.jpg" />
+	  <None Remove="Resources\Images\34.jpg" />
+	  <None Remove="Resources\Images\35.jpg" />
+	  <None Remove="Resources\Images\36.jpg" />
+	  <None Remove="Resources\Images\37.jpg" />
+	  <None Remove="Resources\Images\38.jpg" />
+	  <None Remove="Resources\Images\39.jpg" />
+	  <None Remove="Resources\Images\4.jpg" />
+	  <None Remove="Resources\Images\40.jpg" />
+	  <None Remove="Resources\Images\41.jpg" />
+	  <None Remove="Resources\Images\42.jpg" />
+	  <None Remove="Resources\Images\43.jpg" />
+	  <None Remove="Resources\Images\44.jpg" />
+	  <None Remove="Resources\Images\45.jpg" />
+	  <None Remove="Resources\Images\46.jpg" />
+	  <None Remove="Resources\Images\47.jpg" />
+	  <None Remove="Resources\Images\48.jpg" />
+	  <None Remove="Resources\Images\49.jpg" />
+	  <None Remove="Resources\Images\5.jpg" />
+	  <None Remove="Resources\Images\50.jpg" />
+	  <None Remove="Resources\Images\6.jpg" />
+	  <None Remove="Resources\Images\7.jpg" />
+	  <None Remove="Resources\Images\8.jpg" />
+	  <None Remove="Resources\Images\9.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />

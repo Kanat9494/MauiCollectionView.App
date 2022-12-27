@@ -1,4 +1,6 @@
-﻿namespace MauiCollectionView.Services;
+﻿using System.Net;
+
+namespace MauiCollectionView.Services;
 
 public class AnimalService
 {
@@ -35,12 +37,34 @@ public class AnimalService
                 item.ItemId = itemId;
                 item.Title = $"Title of {itemId}-th item";
                 item.Description = $"This is the Description of {itemId}-th item";
-                item.ImageUrl = $"https://picsum.photos/id/{itemId}/200/300";
+                item.ImageUrl = $"http://127.0.0.1/1.jpg";
 
                 items.Add(item);
             }
         });
 
         return items;
+    }
+
+    private async Task DownloadImage(string imageUrl)
+    {
+        await Task.Run(() =>
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(imageUrl, "1.png");
+            }
+        });
+    }
+
+    private async Image TestImage(string imageUrl)
+    {
+        using (WebClient client = new WebClient())
+        {
+            using (Stream stream = client.OpenRead(imageUrl))
+            {
+                return Image.FromStream(stream);
+            };
+        }
     }
 }
